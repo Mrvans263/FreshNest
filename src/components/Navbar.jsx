@@ -7,37 +7,33 @@ import gbFlag from "../assets/flags/gb.svg";
 
 export default function Navbar() {
   const { lang, setLang, t } = useLang();
-  const [open, setOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
-  // Close menu when clicking on a link or backdrop
+  // Close menu when clicking outside or on resize
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth > 768) {
-        setOpen(false);
+        setIsOpen(false);
       }
     };
 
-    const handleEscape = (e) => {
-      if (e.key === 'Escape') {
-        setOpen(false);
+    const handleClickOutside = (event) => {
+      if (isOpen && !event.target.closest('.nav-inner')) {
+        setIsOpen(false);
       }
     };
 
     window.addEventListener('resize', handleResize);
-    document.addEventListener('keydown', handleEscape);
+    document.addEventListener('mousedown', handleClickOutside);
 
     return () => {
       window.removeEventListener('resize', handleResize);
-      document.removeEventListener('keydown', handleEscape);
+      document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, []);
+  }, [isOpen]);
 
   const handleNavClick = () => {
-    setOpen(false);
-  };
-
-  const handleBackdropClick = () => {
-    setOpen(false);
+    setIsOpen(false);
   };
 
   return (
@@ -47,29 +43,20 @@ export default function Navbar() {
           🏠 FreshNest
         </Link>
 
-        {/* Burger button */}
+        {/* Burger button - always visible on mobile */}
         <button
-          className={`burger ${open ? "open" : ""}`}
-          onClick={() => setOpen(!open)}
-          aria-label="menu"
-          aria-expanded={open}
+          className={`burger ${isOpen ? "open" : ""}`}
+          onClick={() => setIsOpen(!isOpen)}
+          aria-label="Toggle menu"
+          aria-expanded={isOpen}
         >
           <span></span>
           <span></span>
           <span></span>
         </button>
 
-        {/* Mobile backdrop */}
-        {open && (
-          <div 
-            className="nav-backdrop show" 
-            onClick={handleBackdropClick}
-            aria-hidden="true"
-          />
-        )}
-
-        {/* Navigation */}
-        <nav className={open ? "show" : ""}>
+        {/* Navigation menu */}
+        <nav className={isOpen ? "show" : ""}>
           <NavLink to="/" end onClick={handleNavClick}>
             {t("nav.home")}
           </NavLink>
@@ -82,30 +69,9 @@ export default function Navbar() {
           <NavLink to="/contact" onClick={handleNavClick}>
             {t("nav.contact")}
           </NavLink>
-
-          {/* Mobile-only actions */}
-          <div className="nav-actions-mobile">
-            <button
-              className="lang-toggle mobile-lang"
-              onClick={() => {
-                setLang(lang === "ru" ? "en" : "ru");
-                handleNavClick();
-              }}
-            >
-              <img src={lang === "ru" ? gbFlag : ruFlag} alt="language" />
-              <span>{lang === "ru" ? "English" : "Русский"}</span>
-            </button>
-            <Link 
-              to="/booking" 
-              className="btn-primary small-btn mobile-book"
-              onClick={handleNavClick}
-            >
-              {t("nav.bookNow")}
-            </Link>
-          </div>
         </nav>
 
-        {/* Desktop actions */}
+        {/* Actions - always visible */}
         <div className="nav-actions">
           <button
             className="lang-toggle"
@@ -113,8 +79,9 @@ export default function Navbar() {
             aria-label={lang === "ru" ? "Switch to English" : "Переключить на русский"}
           >
             <img src={lang === "ru" ? gbFlag : ruFlag} alt="language" />
+            <span className="lang-text">{lang === "ru" ? "EN" : "RU"}</span>
           </button>
-          <Link to="/booking" className="btn-primary small-btn">
+          <Link to="/booking" className="btn-primary small-btn" onClick={handleNavClick}>
             {t("nav.bookNow")}
           </Link>
         </div>
