@@ -46,20 +46,7 @@ export default function Hero() {
         </div>
         
         {/* Trust indicators */}
-        <div className="hero-trust">
-          <div className="trust-item">
-            <span className="trust-icon">⭐</span>
-            <span>{t('hero.trust.rating')}</span>
-          </div>
-          <div className="trust-item">
-            <span className="trust-icon">🕒</span>
-            <span>{t('hero.trust.availability')}</span>
-          </div>
-          <div className="trust-item">
-            <span className="trust-icon">🏠</span>
-            <span>{t('hero.trust.homes')}</span>
-          </div>
-        </div>
+       
       </div>
       
       {/* Scroll indicator */}
