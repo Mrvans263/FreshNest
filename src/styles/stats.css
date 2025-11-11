@@ -1,0 +1,5 @@
+.stats{background:#fff;padding:1.8rem 0}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;align-items:center;justify-items:center}
+.stat{display:flex;flex-direction:column;align-items:center;gap:.2rem;border:1px solid var(--border);border-radius:.9rem;padding:1rem;background:#f9fbff}
+.num{font-size:2rem;font-weight:800;color:#1e3a8a;line-height:1}
+.label{color:#475569;font-weight:600}

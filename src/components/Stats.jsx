@@ -1,0 +1,5 @@
+import React,{useEffect,useState} from 'react'
+import '../styles/stats.css'
+import { useLang } from '../context/LanguageContext.jsx'
+function useCounter(target,duration=900){const[v,setV]=useState(0);useEffect(()=>{let s=null;function step(ts){if(!s)s=ts;const p=Math.min((ts-s)/duration,1);setV(Math.floor(p*target));if(p<1)requestAnimationFrame(step)}const id=requestAnimationFrame(step);return()=>cancelAnimationFrame(id)},[target,duration]);return v}
+export default function Stats(){const {t}=useLang();const years=useCounter(5,700);const clients=useCounter(1200,900);const homes=useCounter(850,900);return(<section className="stats"><div className="container stats-grid"><div className="stat"><div className="num">{years}+</div><div className="label">{t('stats.years')}</div></div><div className="stat"><div className="num">{clients}+</div><div className="label">{t('stats.clients')}</div></div><div className="stat"><div className="num">{homes}+</div><div className="label">{t('stats.homes')}</div></div></div></section>)}
