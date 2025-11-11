@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useLang } from '../context/LanguageContext.jsx';
 import heroImage from '../assets/cleaning-lady.jpg';
-import heroImageMobile from '../assets/cleaning-lady-mobile.jpg'; // Optional: different crop for mobile
 import '../styles/hero.css';
 
 export default function Hero() {
@@ -13,12 +12,7 @@ export default function Hero() {
       {/* Background image with multiple sources for optimal loading */}
       <div className="hero-background">
         <picture>
-          {/* Mobile-optimized image */}
-          <source 
-            media="(max-width: 768px)" 
-            srcSet={heroImageMobile || heroImage}
-          />
-          {/* Desktop image */}
+          {/* Desktop image - same for all sizes since we're using CSS object-position */}
           <source 
             media="(min-width: 769px)" 
             srcSet={heroImage}
