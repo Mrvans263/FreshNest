@@ -9,7 +9,7 @@ export default function Navbar() {
   const { lang, setLang, t } = useLang();
   const [isOpen, setIsOpen] = useState(false);
 
-  // Close menu when clicking outside or on resize
+  // Close menu when clicking outside, on escape key, or on resize
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth > 768) {
@@ -17,23 +17,40 @@ export default function Navbar() {
       }
     };
 
+    const handleEscape = (event) => {
+      if (event.key === 'Escape') {
+        setIsOpen(false);
+      }
+    };
+
     const handleClickOutside = (event) => {
-      if (isOpen && !event.target.closest('.nav-inner')) {
+      const nav = document.querySelector('nav');
+      const burger = document.querySelector('.burger');
+      
+      if (isOpen && nav && burger && 
+          !nav.contains(event.target) && 
+          !burger.contains(event.target)) {
         setIsOpen(false);
       }
     };
 
     window.addEventListener('resize', handleResize);
+    document.addEventListener('keydown', handleEscape);
     document.addEventListener('mousedown', handleClickOutside);
 
     return () => {
       window.removeEventListener('resize', handleResize);
+      document.removeEventListener('keydown', handleEscape);
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [isOpen]);
 
   const handleNavClick = () => {
     setIsOpen(false);
+  };
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
   };
 
   return (
@@ -43,10 +60,10 @@ export default function Navbar() {
           🏠 FreshNest
         </Link>
 
-        {/* Burger button - always visible on mobile */}
+        {/* Burger button */}
         <button
           className={`burger ${isOpen ? "open" : ""}`}
-          onClick={() => setIsOpen(!isOpen)}
+          onClick={toggleMenu}
           aria-label="Toggle menu"
           aria-expanded={isOpen}
         >
@@ -54,6 +71,12 @@ export default function Navbar() {
           <span></span>
           <span></span>
         </button>
+
+        {/* Mobile backdrop */}
+        <div 
+          className={`nav-backdrop ${isOpen ? "show" : ""}`}
+          onClick={() => setIsOpen(false)}
+        />
 
         {/* Navigation menu */}
         <nav className={isOpen ? "show" : ""}>
