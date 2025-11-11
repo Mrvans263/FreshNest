@@ -34,7 +34,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link to="/" className="nav-logo" onClick={closeMenu}>
             <div className="logo-icon">✨</div>
-            <span>CleanPro</span>
+            <span>FreshNest</span>
           </Link>
 
           {/* Desktop Navigation */}
