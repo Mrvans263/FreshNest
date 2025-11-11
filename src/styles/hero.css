@@ -1,76 +1,54 @@
-/* ============= HERO ============= */
 .hero {
   position: relative;
   background-size: cover;
-  background-position: center center;
+  background-position: center top;
   background-repeat: no-repeat;
   color: #fff;
-  min-height: 100vh; /* ✅ full viewport on mobile */
+  height: 100vh;
+  min-height: 560px;
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
 }
-
 .overlay {
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(180deg, rgba(2,6,23,0.7) 0%, rgba(2,6,23,0.45) 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 3.5rem 1rem;
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.35) 100%);
 }
-
 .hero-content {
+  position: relative;
+  z-index: 2;
   max-width: 680px;
-  animation: slideUp .45s ease both;
+  text-align: center;
+  padding: 0 1rem;
+  animation: slideUp .5s ease both;
 }
-
 .hero-content h1 {
-  font-size: clamp(1.9rem, 6vw, 2.8rem);
+  font-size: clamp(1.8rem, 5.5vw, 2.8rem);
   margin-bottom: 1rem;
   line-height: 1.2;
 }
-
 .hero-content p {
   font-size: clamp(1rem, 4vw, 1.3rem);
-  margin-bottom: 1.8rem;
-  color: #e2e8f0;
+  margin-bottom: 1.6rem;
+  color: #f1f5f9;
 }
-
-/* Buttons */
 .hero-buttons {
-  display: flex;
-  flex-direction: column;
-  gap: 0.9rem;
+  display:flex;
+  flex-direction:column;
+  gap:0.8rem;
+  align-items:center;
 }
 .hero-buttons .btn-primary,
 .hero-buttons .btn-secondary {
-  font-size: 1rem;
-  padding: 0.9rem 1.2rem;
-  border-radius: 0.8rem;
-  width: 100%;
+  width:80%;
+  max-width:260px;
+  font-size:1rem;
+  padding:.9rem 1.2rem;
+  border-radius:.8rem;
 }
-
-/* Desktop and tablet */
-@media (min-width: 768px) {
-  .hero {
-    text-align: left;
-    justify-content: flex-start;
-    padding-left: 4rem;
-  }
-  .hero-buttons {
-    flex-direction: row;
-    width: fit-content;
-  }
-  .hero-buttons .btn-primary,
-  .hero-buttons .btn-secondary {
-    width: auto;
-  }
+@media(min-width:768px){
+  .hero{justify-content:flex-start;text-align:left;padding-left:4rem;}
+  .hero-buttons{flex-direction:row;align-items:flex-start;}
+  .hero-buttons .btn-primary,.hero-buttons .btn-secondary{width:auto;}
 }
-
-@keyframes slideUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
+@keyframes slideUp{from{opacity:0;transform:translateY(25px);}to{opacity:1;transform:translateY(0);}}
