@@ -1,124 +1,117 @@
-import React, { useState, useEffect } from "react";
-import { Link, NavLink } from "react-router-dom";
-import { useLang } from "../context/LanguageContext.jsx";
-import "../styles/navbar.css";
-import ruFlag from "../assets/flags/ru.svg";
-import gbFlag from "../assets/flags/gb.svg";
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { useLang } from '../context/LanguageContext.jsx';
+import '../styles/navbar.css';
 
 export default function Navbar() {
-  const { lang, setLang, t } = useLang();
-  const [isOpen, setIsOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const { t, language, changeLanguage } = useLang();
+  const location = useLocation();
 
-  // Close menu when clicking outside, on escape key, or on resize
   useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth > 768) {
-        setIsOpen(false);
-      }
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
     };
 
-    const handleEscape = (event) => {
-      if (event.key === 'Escape') {
-        setIsOpen(false);
-      }
-    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
-    window.addEventListener('resize', handleResize);
-    document.addEventListener('keydown', handleEscape);
+  const closeMenu = () => setIsMenuOpen(false);
 
-    return () => {
-      window.removeEventListener('resize', handleResize);
-      document.removeEventListener('keydown', handleEscape);
-    };
-  }, [isOpen]);
-
-  const handleNavClick = () => {
-    setIsOpen(false);
-  };
-
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
+  const navItems = [
+    { path: '/', label: t('nav.home') },
+    { path: '/services', label: t('nav.services') },
+    { path: '/about', label: t('nav.about') },
+    { path: '/contact', label: t('nav.contact') },
+  ];
 
   return (
-    <header className="navbar">
-      <div className="nav-inner container">
-        <Link to="/" className="brand" onClick={handleNavClick}>
-          🏠 FreshNest
-        </Link>
+    <>
+      <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
+        <div className="nav-container">
+          {/* Logo */}
+          <Link to="/" className="nav-logo" onClick={closeMenu}>
+            <div className="logo-icon">✨</div>
+            <span>CleanPro</span>
+          </Link>
 
-        {/* Burger button */}
-        <button
-          className={`burger ${isOpen ? "open" : ""}`}
-          onClick={toggleMenu}
-          aria-label="Toggle menu"
-          aria-expanded={isOpen}
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
+          {/* Desktop Navigation */}
+          <div className="nav-menu">
+            {navItems.map((item) => (
+              <Link
+                key={item.path}
+                to={item.path}
+                className={`nav-link ${location.pathname === item.path ? 'active' : ''}`}
+                onClick={closeMenu}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
 
-        {/* Mobile backdrop */}
-        <div 
-          className={`nav-backdrop ${isOpen ? "show" : ""}`}
-          onClick={() => setIsOpen(false)}
-        />
-
-        {/* Navigation menu */}
-        <nav className={isOpen ? "show" : ""}>
-          <div className="mobile-nav-content">
-            <NavLink to="/" end onClick={handleNavClick}>
-              {t("nav.home")}
-            </NavLink>
-            <NavLink to="/about" onClick={handleNavClick}>
-              {t("nav.about")}
-            </NavLink>
-            <NavLink to="/booking" onClick={handleNavClick}>
-              {t("nav.booking")}
-            </NavLink>
-            <NavLink to="/contact" onClick={handleNavClick}>
-              {t("nav.contact")}
-            </NavLink>
-            
-            {/* Mobile-only actions inside menu */}
-            <div className="mobile-actions">
+          {/* Right Section */}
+          <div className="nav-actions">
+            {/* Language Switcher */}
+            <div className="language-switcher">
               <button
-                className="lang-toggle mobile-lang"
-                onClick={() => {
-                  setLang(lang === "ru" ? "en" : "ru");
-                  handleNavClick();
-                }}
+                className={`lang-btn ${language === 'en' ? 'active' : ''}`}
+                onClick={() => changeLanguage('en')}
               >
-                <img src={lang === "ru" ? gbFlag : ruFlag} alt="language" />
-                <span>{lang === "ru" ? "English" : "Русский"}</span>
+                EN
               </button>
-              <Link 
-                to="/booking" 
-                className="btn-primary small-btn mobile-book"
-                onClick={handleNavClick}
+              <span className="lang-divider">|</span>
+              <button
+                className={`lang-btn ${language === 'ru' ? 'active' : ''}`}
+                onClick={() => changeLanguage('ru')}
               >
-                {t("nav.bookNow")}
+                RU
+              </button>
+            </div>
+
+            {/* CTA Button */}
+            <Link to="/booking" className="nav-cta">
+              {t('nav.bookNow')}
+            </Link>
+
+            {/* Mobile Menu Button */}
+            <button
+              className="menu-toggle"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              <span className={`hamburger ${isMenuOpen ? 'active' : ''}`}></span>
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile Menu Overlay */}
+        <div className={`mobile-overlay ${isMenuOpen ? 'active' : ''}`} onClick={closeMenu}></div>
+
+        {/* Mobile Menu */}
+        <div className={`mobile-menu ${isMenuOpen ? 'active' : ''}`}>
+          <div className="mobile-menu-content">
+            {navItems.map((item) => (
+              <Link
+                key={item.path}
+                to={item.path}
+                className={`mobile-nav-link ${location.pathname === item.path ? 'active' : ''}`}
+                onClick={closeMenu}
+              >
+                {item.label}
+              </Link>
+            ))}
+            
+            {/* Mobile CTA */}
+            <div className="mobile-actions">
+              <Link to="/booking" className="mobile-cta" onClick={closeMenu}>
+                {t('nav.bookNow')}
               </Link>
             </div>
           </div>
-        </nav>
-
-        {/* Desktop actions - hidden on mobile */}
-        <div className="nav-actions">
-          <button
-            className="lang-toggle"
-            onClick={() => setLang(lang === "ru" ? "en" : "ru")}
-            aria-label={lang === "ru" ? "Switch to English" : "Переключить на русский"}
-          >
-            <img src={lang === "ru" ? gbFlag : ruFlag} alt="language" />
-            <span className="lang-text">{lang === "ru" ? "EN" : "RU"}</span>
-          </button>
-          <Link to="/booking" className="btn-primary small-btn">
-            {t("nav.bookNow")}
-          </Link>
         </div>
-      </div>
-    </header>
+      </nav>
+    </>
   );
 }
