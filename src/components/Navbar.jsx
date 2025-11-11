@@ -6,7 +6,7 @@ import '../styles/navbar.css';
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const { t, language, changeLanguage } = useLang();
+  const { t, lang, setLang } = useLang(); // Changed from language/changeLanguage to lang/setLang
   const location = useLocation();
 
   useEffect(() => {
@@ -20,9 +20,9 @@ export default function Navbar() {
 
   const closeMenu = () => setIsMenuOpen(false);
 
-  const handleLanguageChange = (lang) => {
-    changeLanguage(lang);
-    closeMenu(); // Close menu when language is changed
+  const handleLanguageChange = (newLang) => {
+    setLang(newLang); // Use setLang instead of changeLanguage
+    closeMenu();
   };
 
   const navItems = [
@@ -61,14 +61,14 @@ export default function Navbar() {
             {/* Language Switcher - Desktop */}
             <div className="language-switcher">
               <button
-                className={`lang-btn ${language === 'en' ? 'active' : ''}`}
+                className={`lang-btn ${lang === 'en' ? 'active' : ''}`} // Changed from language to lang
                 onClick={() => handleLanguageChange('en')}
               >
                 EN
               </button>
               <span className="lang-divider">|</span>
               <button
-                className={`lang-btn ${language === 'ru' ? 'active' : ''}`}
+                className={`lang-btn ${lang === 'ru' ? 'active' : ''}`} // Changed from language to lang
                 onClick={() => handleLanguageChange('ru')}
               >
                 RU
@@ -111,13 +111,13 @@ export default function Navbar() {
             {/* Mobile Language Switcher */}
             <div className="mobile-language-switcher">
               <button
-                className={`mobile-lang-btn ${language === 'en' ? 'active' : ''}`}
+                className={`mobile-lang-btn ${lang === 'en' ? 'active' : ''}`}
                 onClick={() => handleLanguageChange('en')}
               >
                 English
               </button>
               <button
-                className={`mobile-lang-btn ${language === 'ru' ? 'active' : ''}`}
+                className={`mobile-lang-btn ${lang === 'ru' ? 'active' : ''}`}
                 onClick={() => handleLanguageChange('ru')}
               >
                 Русский
