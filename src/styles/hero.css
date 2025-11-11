@@ -1,4 +1,4 @@
-/* Enhanced Hero Styles */
+/* Hero Styles - Ensure lower z-index */
 .hero {
   position: relative;
   height: 100vh;
@@ -9,13 +9,14 @@
   justify-content: flex-start;
   overflow: hidden;
   isolation: isolate;
+  z-index: 1; /* Lower than navbar */
 }
 
 /* Background image container */
 .hero-background {
   position: absolute;
   inset: 0;
-  z-index: -1;
+  z-index: -1; /* Even lower */
 }
 
 .hero-image {
@@ -24,6 +25,35 @@
   object-fit: cover;
   object-position: right center;
   transition: object-position 0.8s ease;
+}
+
+/* Enhanced gradient overlay */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0.5) 40%,
+    rgba(0, 0, 0, 0.2) 80%,
+    transparent 100%
+  );
+  z-index: 1; /* Same as hero */
+}
+
+/* Content container */
+.hero-content {
+  position: relative;
+  z-index: 2; /* Content can be higher but still below navbar */
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 3rem;
+  align-items: center;
+  animation: slideUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
 /* Enhanced gradient overlay */
