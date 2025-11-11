@@ -20,6 +20,11 @@ export default function Navbar() {
 
   const closeMenu = () => setIsMenuOpen(false);
 
+  const handleLanguageChange = (lang) => {
+    changeLanguage(lang);
+    closeMenu(); // Close menu when language is changed
+  };
+
   const navItems = [
     { path: '/', label: t('nav.home') },
     { path: '/services', label: t('nav.services') },
@@ -53,18 +58,18 @@ export default function Navbar() {
 
           {/* Right Section */}
           <div className="nav-actions">
-            {/* Language Switcher */}
+            {/* Language Switcher - Desktop */}
             <div className="language-switcher">
               <button
                 className={`lang-btn ${language === 'en' ? 'active' : ''}`}
-                onClick={() => changeLanguage('en')}
+                onClick={() => handleLanguageChange('en')}
               >
                 EN
               </button>
               <span className="lang-divider">|</span>
               <button
                 className={`lang-btn ${language === 'ru' ? 'active' : ''}`}
-                onClick={() => changeLanguage('ru')}
+                onClick={() => handleLanguageChange('ru')}
               >
                 RU
               </button>
@@ -102,6 +107,22 @@ export default function Navbar() {
                 {item.label}
               </Link>
             ))}
+            
+            {/* Mobile Language Switcher */}
+            <div className="mobile-language-switcher">
+              <button
+                className={`mobile-lang-btn ${language === 'en' ? 'active' : ''}`}
+                onClick={() => handleLanguageChange('en')}
+              >
+                English
+              </button>
+              <button
+                className={`mobile-lang-btn ${language === 'ru' ? 'active' : ''}`}
+                onClick={() => handleLanguageChange('ru')}
+              >
+                Русский
+              </button>
+            </div>
             
             {/* Mobile CTA */}
             <div className="mobile-actions">
