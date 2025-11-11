@@ -23,25 +23,12 @@ export default function Navbar() {
       }
     };
 
-    const handleClickOutside = (event) => {
-      const nav = document.querySelector('nav');
-      const burger = document.querySelector('.burger');
-      
-      if (isOpen && nav && burger && 
-          !nav.contains(event.target) && 
-          !burger.contains(event.target)) {
-        setIsOpen(false);
-      }
-    };
-
     window.addEventListener('resize', handleResize);
     document.addEventListener('keydown', handleEscape);
-    document.addEventListener('mousedown', handleClickOutside);
 
     return () => {
       window.removeEventListener('resize', handleResize);
       document.removeEventListener('keydown', handleEscape);
-      document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [isOpen]);
 
@@ -80,21 +67,44 @@ export default function Navbar() {
 
         {/* Navigation menu */}
         <nav className={isOpen ? "show" : ""}>
-          <NavLink to="/" end onClick={handleNavClick}>
-            {t("nav.home")}
-          </NavLink>
-          <NavLink to="/about" onClick={handleNavClick}>
-            {t("nav.about")}
-          </NavLink>
-          <NavLink to="/booking" onClick={handleNavClick}>
-            {t("nav.booking")}
-          </NavLink>
-          <NavLink to="/contact" onClick={handleNavClick}>
-            {t("nav.contact")}
-          </NavLink>
+          <div className="mobile-nav-content">
+            <NavLink to="/" end onClick={handleNavClick}>
+              {t("nav.home")}
+            </NavLink>
+            <NavLink to="/about" onClick={handleNavClick}>
+              {t("nav.about")}
+            </NavLink>
+            <NavLink to="/booking" onClick={handleNavClick}>
+              {t("nav.booking")}
+            </NavLink>
+            <NavLink to="/contact" onClick={handleNavClick}>
+              {t("nav.contact")}
+            </NavLink>
+            
+            {/* Mobile-only actions inside menu */}
+            <div className="mobile-actions">
+              <button
+                className="lang-toggle mobile-lang"
+                onClick={() => {
+                  setLang(lang === "ru" ? "en" : "ru");
+                  handleNavClick();
+                }}
+              >
+                <img src={lang === "ru" ? gbFlag : ruFlag} alt="language" />
+                <span>{lang === "ru" ? "English" : "Русский"}</span>
+              </button>
+              <Link 
+                to="/booking" 
+                className="btn-primary small-btn mobile-book"
+                onClick={handleNavClick}
+              >
+                {t("nav.bookNow")}
+              </Link>
+            </div>
+          </div>
         </nav>
 
-        {/* Actions - always visible */}
+        {/* Desktop actions - hidden on mobile */}
         <div className="nav-actions">
           <button
             className="lang-toggle"
@@ -104,7 +114,7 @@ export default function Navbar() {
             <img src={lang === "ru" ? gbFlag : ruFlag} alt="language" />
             <span className="lang-text">{lang === "ru" ? "EN" : "RU"}</span>
           </button>
-          <Link to="/booking" className="btn-primary small-btn" onClick={handleNavClick}>
+          <Link to="/booking" className="btn-primary small-btn">
             {t("nav.bookNow")}
           </Link>
         </div>
