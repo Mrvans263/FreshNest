@@ -195,7 +195,7 @@
   }
 
   .hero-image {
-    object-position: 65% center; /* Adjust to keep lady visible on mobile */
+    object-position: 50% center; /* Adjust to keep lady visible on mobile */
   }
 
   .overlay {
