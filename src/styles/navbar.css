@@ -1,61 +1,90 @@
-/* Mobile-friendly navbar that wraps cleanly */
+/* ============= NAVBAR ============= */
 .navbar {
-  position: sticky; top: 0;
-  background: #fff;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background: #ffffff;
   border-bottom: 1px solid #e2e8f0;
-  z-index: 10;
+  z-index: 50;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
 }
 
 .nav-inner {
-  display: flex; align-items: center; justify-content: space-between;
-  gap: .5rem;
-  padding: .5rem 1rem;
-  flex-wrap: wrap;               /* allow wrapping on small screens */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: .6rem 1rem;
+  flex-wrap: nowrap;
 }
 
+/* Brand */
 .brand {
-  font-weight: 800; color: #2563eb;
+  font-weight: 800;
+  font-size: 1.4rem;
+  color: #2563eb;
   text-decoration: none;
 }
 
-/* Links line-wrap and center on mobile */
+/* Nav links */
 .navbar nav {
-  display: flex; gap: .75rem;
-  flex-wrap: wrap;               /* prevents overflow */
-  justify-content: center;
-  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: all 0.3s ease;
 }
 
+/* Default desktop style */
 .navbar nav a {
   color: #475569;
   text-decoration: none;
-  padding: .5rem .5rem;
-  border-radius: .5rem;
   font-weight: 500;
+  padding: .4rem .6rem;
+  border-radius: .5rem;
 }
-
 .navbar nav a.active {
-  color: #0f172a;
   background: rgba(37,99,235,.1);
+  color: #0f172a;
 }
 
+/* Language and CTA */
 .nav-actions {
-  display: flex; align-items: center; gap: .5rem;
-  margin-left: auto;             /* push to right when wide */
+  display: flex;
+  align-items: center;
+  gap: .5rem;
 }
-
 .lang-toggle {
   background: #fff;
   border: 1px solid #e2e8f0;
-  border-radius: .5rem;
+  border-radius: .4rem;
   padding: .25rem .4rem;
   cursor: pointer;
 }
+.lang-toggle img { width: 22px; height: 15px; display: block; }
+.navbar .btn-primary { font-size: .9rem; padding: .45rem .8rem; }
 
-.lang-toggle img { width: 20px; height: 14px; display: block; }
+/* ============= MOBILE MODE ============= */
+@media (max-width: 720px) {
+  .nav-inner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: .75rem;
+  }
 
-/* Tablet+: keep one row */
-@media (min-width: 720px) {
-  .nav-inner { flex-wrap: nowrap; }
-  .navbar nav { width: auto; }
+  .navbar nav {
+    flex-direction: column;
+    background: #ffffff;
+    border-radius: .75rem;
+    border: 1px solid #e2e8f0;
+    padding: .5rem 0;
+  }
+
+  .navbar nav a {
+    text-align: center;
+    width: 100%;
+    padding: .6rem 0;
+  }
+
+  .nav-actions {
+    justify-content: center;
+  }
 }
