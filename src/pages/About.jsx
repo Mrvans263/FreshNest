@@ -1,15 +1,22 @@
 import React, { useState, useEffect, useRef } from "react";
 import "../styles/about.css";
 import { useLang } from "../context/LanguageContext.jsx";
+import slide1 from "../assets/slides/slide1.jpg";
+import slide2 from "../assets/slides/slide2.jpg";
+import slide3 from "../assets/slides/slide3.jpg";
+import slide4 from "../assets/slides/slide4.jpg";
+import slide5 from "../assets/slides/slide5.jpg";
+import slide6 from "../assets/slides/slide6.jpg";
 
 const slides = [
-  { key: "f1", image: "/assets/slide1.jpg" },
-  { key: "f2", image: "/assets/slide2.jpg" },
-  { key: "f3", image: "/assets/slide3.jpg" },
-  { key: "f4", image: "/assets/slide4.jpg" },
-  { key: "f5", image: "/assets/slide5.jpg" },
-  { key: "f6", image: "/assets/slide6.jpg" },
+  { key: "f1", image: slide1 },
+  { key: "f2", image: slide2 },
+  { key: "f3", image: slide3 },
+  { key: "f4", image: slide4 },
+  { key: "f5", image: slide5 },
+  { key: "f6", image: slide6 },
 ];
+
 
 export default function About() {
   const { t } = useLang();
