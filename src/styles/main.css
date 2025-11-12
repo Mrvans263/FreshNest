@@ -13,6 +13,9 @@ body {
 }
 .container { max-width: 1100px; margin: 0 auto; padding: 0 1rem; }
 main { min-height: 60vh; }
+main {
+  padding-top: 100px; /* enough for both desktop and mobile navbar */
+}
 h1, h2, h3 { line-height: 1.2; margin: .25rem 0 .5rem; }
 h1 { font-size: clamp(1.8rem, 4.8vw, 2.25rem); }
 h2 { font-size: clamp(1.2rem, 3.6vw, 1.5rem); margin-top: 1rem; }
