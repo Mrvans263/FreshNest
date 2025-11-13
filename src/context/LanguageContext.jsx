@@ -207,7 +207,33 @@ const translations = {
     "Глажка белья — от 600 ₽/час",
     "Мытье лотка питомца — 250 ₽",
     "Уборка на балконе/гараже — по договоренности"
-  ]
+  ],
+ contact: {
+  title: "Связаться с нами",
+  send: "Отправить",
+  message: "Сообщение (необязательно)",
+  connect: "Связаться удобным способом",
+  optional: "(необязательно)",
+
+  whatsapp: "WhatsApp",
+  whatsapp_msg: "Написать в WhatsApp",
+
+  telegram: "Telegram",
+  telegram_msg: "Написать в Telegram",
+
+  call: "Позвонить",
+  phone: "Телефон",
+
+  email: "Email",
+  email_msg: "Отправить email",
+
+  instagram: "Instagram",
+  vk: "VK",
+  maps: "Посмотреть на Яндекс.Картах",
+  gis: "Посмотреть в 2ГИС"
+}
+
+
 }
 
   },
@@ -419,7 +445,33 @@ const translations = {
     "Ironing — from 600 ₽/hour",
     "Pet litter cleaning — 250 ₽",
     "Balcony/garage cleaning — on request"
-  ]
+  ],
+  contact: {
+  title: "Связаться с нами",
+  send: "Отправить",
+  message: "Сообщение (необязательно)",
+  connect: "Связаться удобным способом",
+  optional: "(необязательно)",
+
+  whatsapp: "WhatsApp",
+  whatsapp_msg: "Написать в WhatsApp",
+
+  telegram: "Telegram",
+  telegram_msg: "Написать в Telegram",
+
+  call: "Позвонить",
+  phone: "Телефон",
+
+  email: "Email",
+  email_msg: "Отправить email",
+
+  instagram: "Instagram",
+  vk: "VK",
+  maps: "Посмотреть на Яндекс.Картах",
+  gis: "Посмотреть в 2ГИС"
+}
+
+
 }
 
   }

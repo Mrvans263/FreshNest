@@ -1,207 +1,68 @@
-/* ===== ENHANCED CONTACT STYLES ===== */
-/* These styles enhance your existing structure without breaking changes */
-
-.contact-page {
-  position: relative;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 3rem 1rem;
+.contact-subtitle {
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+  color: #334155;
+  text-align: center;
 }
 
+/* CONTACT BUTTON GRID */
 .contact-actions {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
   margin-bottom: 3rem;
 }
 
+/* UNIVERSAL BUTTON STYLE */
 .contact-btn {
-  padding: 1.25rem 1.5rem;
-  border-radius: 1rem;
+  padding: 1rem 1.2rem;
+  border-radius: 0.8rem;
   text-decoration: none;
-  font-weight: 600;
   color: white;
-  text-align: center;
-  font-size: 1rem;
-  transition: all 0.3s ease;
+  font-weight: 600;
   display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Hover effect */
+.contact-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+/* PLATFORM COLORS */
+.whatsapp { background: #25d366; }
+.telegram { background: #0088cc; }
+.phone { background: #2563eb; }
+.email { background: #4b5563; }
+.instagram { background: #e1306c; }
+.vk { background: #0077ff; }
+.maps { background: #ffcc00; color: #1e293b; }
+.gis { background: #1d976c; }
+
+/* FLOATING WHATSAPP BUTTON */
+.floating-whatsapp {
+  position: fixed;
+  bottom: 22px;
+  right: 22px;
+  background: #25d366;
+  width: 58px;
+  height: 58px;
+  display: flex;
+  font-size: 1.8rem;
   justify-content: center;
   align-items: center;
-  gap: 0.5rem;
-  border: 2px solid transparent;
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.contact-btn::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  transition: left 0.5s ease;
-}
-
-.contact-btn:hover::before {
-  left: 100%;
-}
-
-/* Enhanced WhatsApp */
-.contact-btn.whatsapp {
-  background: linear-gradient(135deg, #25d366, #1ebe5c);
-}
-
-.contact-btn.whatsapp:hover {
-  background: linear-gradient(135deg, #1ebe5c, #25d366);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
-}
-
-/* Enhanced Telegram */
-.contact-btn.telegram {
-  background: linear-gradient(135deg, #0088cc, #0078b5);
-}
-
-.contact-btn.telegram:hover {
-  background: linear-gradient(135deg, #0078b5, #0088cc);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0, 136, 204, 0.3);
-}
-
-/* Enhanced Phone */
-.contact-btn.phone {
-  background: linear-gradient(135deg, #2563eb, #1d4ed8);
-}
-
-.contact-btn.phone:hover {
-  background: linear-gradient(135deg, #1d4ed8, #2563eb);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
-}
-
-/* Enhanced Email */
-.contact-btn.email {
-  background: linear-gradient(135deg, #4b5563, #374151);
-}
-
-.contact-btn.email:hover {
-  background: linear-gradient(135deg, #374151, #4b5563);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(75, 85, 99, 0.3);
-}
-
-/* Enhanced Form Styles */
-.form {
-  background: #f8fafc;
-  padding: 2.5rem;
-  border-radius: 1rem;
-  border: 1px solid #e2e8f0;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-}
-
-.grid-2 {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
-  margin-bottom: 1.5rem;
-}
-
-label {
-  display: block;
-  margin-bottom: 1.5rem;
-  font-weight: 500;
-  color: #374151;
-}
-
-input, textarea {
-  width: 100%;
-  padding: 1rem 1.25rem;
-  border: 1px solid #d1d5db;
-  border-radius: 0.5rem;
-  font-size: 1rem;
-  transition: all 0.2s ease;
-  margin-top: 0.5rem;
-  box-sizing: border-box;
-}
-
-input:focus, textarea:focus {
-  outline: none;
-  border-color: #3b82f6;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
-  transform: translateY(-1px);
-}
-
-/* Enhanced Submit Button */
-.btn-primary {
-  width: 100%;
-  padding: 1.25rem 2rem;
-  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  border-radius: 50%;
   color: white;
-  border: none;
-  border-radius: 0.75rem;
-  font-size: 1.125rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+  text-decoration: none;
+  z-index: 999;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+  transition: transform 0.2s ease;
 }
 
-.btn-primary:hover {
-  background: linear-gradient(135deg, #2563eb, #1d4ed8);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.3);
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .grid-2 {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-  
-  .contact-actions {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-  
-  .form {
-    padding: 2rem 1.5rem;
-  }
-  
-  .contact-page {
-    padding: 2rem 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .contact-btn {
-    font-size: 0.95rem;
-    padding: 1.1rem 1.25rem;
-  }
-  
-  input, textarea {
-    padding: 0.875rem 1rem;
-  }
-  
-  .btn-primary {
-    padding: 1.1rem 1.5rem;
-  }
-}
-
-/* Reduced motion support */
-@media (prefers-reduced-motion: reduce) {
-  .contact-btn, .btn-primary {
-    transition: none;
-  }
-  
-  .contact-btn::before {
-    display: none;
-  }
-  
-  .contact-btn:hover, .btn-primary:hover {
-    transform: none;
-  }
+.floating-whatsapp:hover {
+  transform: scale(1.1);
 }
