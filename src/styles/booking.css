@@ -1,36 +1,100 @@
+/* === Pricing Section === */
 .pricing-section {
-  margin-bottom: 2.5rem;
+  margin: 3rem auto;
+  max-width: 900px;
+  padding: 0 1rem;
 }
 
 .pricing-section h2 {
-  font-size: 1.8rem;
-  margin-bottom: 1.5rem;
+  font-size: 2rem;
   text-align: center;
+  margin-bottom: 2rem;
+  font-weight: 700;
+  color: #1e293b;
 }
 
+/* === Pricing Card === */
 .pricing-card {
-  background: #f8fafc;
-  padding: 1.5rem;
-  border-radius: 1rem;
+  background: #ffffff;
+  border-radius: 1.25rem;
+  padding: 1.75rem 1.5rem;
+  margin-bottom: 2rem;
   border: 1px solid #e2e8f0;
-  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
 }
 
+.pricing-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  border-color: #bfdbfe;
+}
+
+/* Title */
 .pricing-card h3 {
+  font-size: 1.5rem;
   margin-bottom: 0.75rem;
-  font-size: 1.25rem;
+  color: #1d4ed8; /* blue accent */
+  font-weight: 700;
+  position: relative;
+  padding-bottom: 0.3rem;
 }
 
+.pricing-card h3::after {
+  content: "";
+  width: 40px;
+  height: 3px;
+  background: #3b82f6;
+  display: block;
+  border-radius: 2px;
+  margin-top: 0.25rem;
+}
+
+/* Description text */
 .pricing-card p {
   color: #475569;
   margin-bottom: 0.75rem;
+  line-height: 1.5;
+  font-size: 1rem;
 }
 
+/* Price list */
 .pricing-card ul {
   padding-left: 1.2rem;
+  margin-top: 0.5rem;
 }
 
 .pricing-card li {
-  margin-bottom: 0.4rem;
-  line-height: 1.4;
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+  color: #334155;
+  font-size: 1rem;
+  position: relative;
+}
+
+.pricing-card li::before {
+  content: "•";
+  color: #2563eb;
+  font-size: 1.2rem;
+  margin-right: 0.5rem;
+}
+
+/* Mobile Optimization */
+@media (max-width: 600px) {
+  .pricing-section {
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+
+  .pricing-card {
+    padding: 1.25rem;
+  }
+
+  .pricing-card h3 {
+    font-size: 1.3rem;
+  }
+
+  .pricing-section h2 {
+    font-size: 1.7rem;
+  }
 }
