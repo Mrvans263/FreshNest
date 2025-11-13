@@ -6,116 +6,142 @@ export default function Contact() {
   const { t } = useLang();
 
   return (
-    <section className="container page contact-page">
-      <h1>{t("contact.title")}</h1>
+    <section className="contact-page container page">
 
-      <h2 className="contact-subtitle">{t("contact.connect")}</h2>
-
-      {/* Contact Buttons */}
-      <div className="contact-actions">
-
-        {/* WhatsApp */}
-        <a
-          href="https://wa.me/79990000000"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="contact-btn whatsapp"
-        >
-          💬 {t("contact.whatsapp")} — {t("contact.whatsapp_msg")}
-        </a>
-
-        {/* Telegram */}
-        <a
-          href="https://t.me/yourTelegramName"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="contact-btn telegram"
-        >
-          📱 {t("contact.telegram")} — {t("contact.telegram_msg")}
-        </a>
-
-        {/* Phone */}
-        <a href="tel:+79990000000" className="contact-btn phone">
-          📞 {t("contact.phone")} — {t("contact.call")}
-        </a>
-
-        {/* Email */}
-        <a href="mailto:cleaning@example.com" className="contact-btn email">
-          ✉️ {t("contact.email")} — {t("contact.email_msg")}
-        </a>
-
-        {/* Instagram */}
-        <a
-          href="https://instagram.com/yourprofile"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="contact-btn instagram"
-        >
-          📸 {t("contact.instagram")}
-        </a>
-
-        {/* VK */}
-        <a
-          href="https://vk.com/yourpage"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="contact-btn vk"
-        >
-          🔵 {t("contact.vk")}
-        </a>
-
-        {/* Yandex Maps */}
-        <a
-          href="https://yandex.ru/maps/?um=constructor%3Aexample"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="contact-btn maps"
-        >
-          📍 {t("contact.maps")}
-        </a>
-
-        {/* 2GIS */}
-        <a
-          href="https://2gis.ru/moscow/example"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="contact-btn gis"
-        >
-          🗺️ {t("contact.gis")}
-        </a>
+      {/* HEADER */}
+      <div className="contact-header">
+        <h1>{t("contact.title")}</h1>
+        <p className="contact-subtext">
+          {t("contact.connect")}
+        </p>
       </div>
 
-      {/* Contact Form */}
-      <form className="form" onSubmit={(e) => e.preventDefault()}>
-        <div className="grid-2">
-          <label>
-            {t("booking.name")}
-            <input required />
-          </label>
+      {/* SECTION: MESSENGERS */}
+      <div className="contact-block">
+        <h2>{t("contact.messengers")}</h2>
+        <div className="contact-grid">
+          
+          <a href="https://wa.me/79990000000" target="_blank"
+             className="contact-item wa">
+            <div className="icon">💬</div>
+            <div className="text">
+              <h3>{t("contact.whatsapp")}</h3>
+              <p>{t("contact.whatsapp_msg")}</p>
+            </div>
+          </a>
 
-          <label>
-            {t("booking.email")} {t("contact.optional")}
-            <input type="email" />
-          </label>
+          <a href="https://t.me/yourTelegramName" target="_blank"
+             className="contact-item tg">
+            <div className="icon">📱</div>
+            <div className="text">
+              <h3>{t("contact.telegram")}</h3>
+              <p>{t("contact.telegram_msg")}</p>
+            </div>
+          </a>
+
         </div>
+      </div>
 
-        <label>
-          {t("contact.message")}
-          <textarea rows="4" />
-        </label>
+      {/* SECTION: DIRECT CONTACT */}
+      <div className="contact-block">
+        <h2>{t("contact.direct")}</h2>
+        <div className="contact-grid">
 
-        <button className="btn-primary" type="submit">
-          {t("contact.send")}
-        </button>
-      </form>
+          <a href="tel:+79990000000" className="contact-item phone">
+            <div className="icon">📞</div>
+            <div className="text">
+              <h3>{t("contact.phone")}</h3>
+              <p>{t("contact.call")}</p>
+            </div>
+          </a>
 
-      {/* Floating WhatsApp Button */}
-      <a
-        href="https://wa.me/79990000000"
-        className="floating-whatsapp"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
+          <a href="mailto:cleaning@example.com" className="contact-item email">
+            <div className="icon">✉️</div>
+            <div className="text">
+              <h3>{t("contact.email")}</h3>
+              <p>{t("contact.email_msg")}</p>
+            </div>
+          </a>
+
+        </div>
+      </div>
+
+      {/* SECTION: SOCIALS */}
+      <div className="contact-block">
+        <h2>{t("contact.socials")}</h2>
+        <div className="contact-grid">
+
+          <a href="https://instagram.com/" target="_blank"
+             className="contact-item ig">
+            <div className="icon">📸</div>
+            <div className="text">
+              <h3>{t("contact.instagram")}</h3>
+              <p>@your_profile</p>
+            </div>
+          </a>
+
+          <a href="https://vk.com/" target="_blank"
+             className="contact-item vk">
+            <div className="icon">🔵</div>
+            <div className="text">
+              <h3>{t("contact.vk")}</h3>
+              <p>vk.com/your_page</p>
+            </div>
+          </a>
+
+          <a href="https://yandex.ru/maps" target="_blank"
+             className="contact-item maps">
+            <div className="icon">📍</div>
+            <div className="text">
+              <h3>{t("contact.maps")}</h3>
+              <p>{t("contact.maps_desc")}</p>
+            </div>
+          </a>
+
+          <a href="https://2gis.ru" target="_blank"
+             className="contact-item gis">
+            <div className="icon">🗺️</div>
+            <div className="text">
+              <h3>{t("contact.gis")}</h3>
+              <p>{t("contact.gis_desc")}</p>
+            </div>
+          </a>
+
+        </div>
+      </div>
+
+      {/* OPTIONAL FORM */}
+      <div className="contact-form-block">
+        <h2>{t("contact.form")}</h2>
+        <p className="optional-note">{t("contact.optional")}</p>
+
+        <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
+          <div className="grid-2">
+            <label>
+              {t("booking.name")}
+              <input required />
+            </label>
+            <label>
+              {t("booking.email")} {t("contact.optional")}
+              <input type="email" />
+            </label>
+          </div>
+
+          <label>
+            {t("contact.message")}
+            <textarea rows="4" />
+          </label>
+
+          <button className="btn-primary" type="submit">
+            {t("contact.send")}
+          </button>
+        </form>
+      </div>
+
+      {/* FLOATING WHATSAPP */}
+      <a href="https://wa.me/79990000000"
+         className="floating-wa"
+         target="_blank">
         💬
       </a>
 

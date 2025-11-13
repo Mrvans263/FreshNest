@@ -1,68 +1,137 @@
-.contact-subtitle {
-  font-size: 1.3rem;
-  margin-bottom: 1.5rem;
-  color: #334155;
+/***************************
+   CONTACT PAGE LAYOUT
+***************************/
+.contact-header {
   text-align: center;
+  margin-bottom: 2rem;
 }
 
-/* CONTACT BUTTON GRID */
-.contact-actions {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1rem;
+.contact-header h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.contact-subtext {
+  color: #64748b;
+  margin-top: 0.4rem;
+  font-size: 1.1rem;
+}
+
+/***************************
+   SECTION BLOCK
+***************************/
+.contact-block {
   margin-bottom: 3rem;
 }
 
-/* UNIVERSAL BUTTON STYLE */
-.contact-btn {
-  padding: 1rem 1.2rem;
-  border-radius: 0.8rem;
-  text-decoration: none;
-  color: white;
-  font-weight: 600;
+.contact-block h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.2rem;
+  color: #1e293b;
+  font-weight: 700;
+}
+
+/***************************
+   CARD GRID
+***************************/
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+/***************************
+   CONTACT ITEM CARD
+***************************/
+.contact-item {
   display: flex;
+  gap: 1rem;
+  background: #ffffff;
+  padding: 1rem 1.3rem;
+  border-radius: 0.9rem;
+  border: 1px solid #e2e8f0;
+  text-decoration: none;
+  transition: 0.25s;
   align-items: center;
-  justify-content: center;
-  gap: 0.4rem;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-/* Hover effect */
-.contact-btn:hover {
+.contact-item .icon {
+  font-size: 2rem;
+}
+
+.contact-item .text h3 {
+  margin: 0;
+  font-size: 1.15rem;
+  color: #1e293b;
+  font-weight: 600;
+}
+
+.contact-item .text p {
+  margin: 0;
+  margin-top: 0.15rem;
+  color: #64748b;
+  font-size: 0.95rem;
+}
+
+.contact-item:hover {
   transform: translateY(-4px);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  border-color: #2563eb;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.07);
 }
 
-/* PLATFORM COLORS */
-.whatsapp { background: #25d366; }
-.telegram { background: #0088cc; }
-.phone { background: #2563eb; }
-.email { background: #4b5563; }
-.instagram { background: #e1306c; }
-.vk { background: #0077ff; }
-.maps { background: #ffcc00; color: #1e293b; }
-.gis { background: #1d976c; }
+/***************************
+   FORM SECTION
+***************************/
+.contact-form-block {
+  margin-top: 3rem;
+}
 
-/* FLOATING WHATSAPP BUTTON */
-.floating-whatsapp {
+.contact-form-block h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.7rem;
+  color: #1e293b;
+}
+
+.optional-note {
+  color: #64748b;
+  margin-bottom: 1.2rem;
+}
+
+.contact-form {
+  background: #ffffff;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  border: 1px solid #e2e8f0;
+}
+
+.contact-form input,
+.contact-form textarea {
+  margin-top: 0.35rem;
+}
+
+/***************************
+   FLOATING WHATSAPP BUTTON
+***************************/
+.floating-wa {
   position: fixed;
   bottom: 22px;
   right: 22px;
+  width: 55px;
+  height: 55px;
   background: #25d366;
-  width: 58px;
-  height: 58px;
-  display: flex;
-  font-size: 1.8rem;
-  justify-content: center;
-  align-items: center;
   border-radius: 50%;
   color: white;
-  text-decoration: none;
-  z-index: 999;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.25);
-  transition: transform 0.2s ease;
+  font-size: 1.8rem;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+  text-decoration:none;
+  z-index:1000;
+  transition:0.2s;
 }
 
-.floating-whatsapp:hover {
+.floating-wa:hover {
   transform: scale(1.1);
 }
