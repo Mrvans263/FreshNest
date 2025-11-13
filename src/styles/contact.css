@@ -1,0 +1,64 @@
+.contact-actions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.contact-btn {
+  padding: 1rem 1.3rem;
+  border-radius: 0.75rem;
+  text-decoration: none;
+  font-weight: 600;
+  color: white;
+  text-align: center;
+  font-size: 1rem;
+  transition: transform 0.25s, box-shadow 0.25s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* WhatsApp */
+.contact-btn.whatsapp {
+  background: #25d366;
+}
+.contact-btn.whatsapp:hover {
+  background: #1ebe5c;
+  transform: translateY(-3px);
+}
+
+/* Telegram */
+.contact-btn.telegram {
+  background: #0088cc;
+}
+.contact-btn.telegram:hover {
+  background: #0078b5;
+  transform: translateY(-3px);
+}
+
+/* Phone */
+.contact-btn.phone {
+  background: #2563eb;
+}
+.contact-btn.phone:hover {
+  background: #1d4ed8;
+  transform: translateY(-3px);
+}
+
+/* Email */
+.contact-btn.email {
+  background: #4b5563;
+}
+.contact-btn.email:hover {
+  background: #374151;
+  transform: translateY(-3px);
+}
+
+@media (max-width: 480px) {
+  .contact-btn {
+    font-size: 0.95rem;
+    padding: 0.9rem 1rem;
+  }
+}
