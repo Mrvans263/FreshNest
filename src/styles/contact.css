@@ -1,26 +1,29 @@
-/* Contact Section Styles */
+/* ===== ENHANCED CONTACT STYLES ===== */
+/* These styles enhance your existing structure without breaking changes */
+
 .contact-page {
-  max-width: 800px;
+  position: relative;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem 1rem;
+  padding: 3rem 1rem;
 }
 
 .contact-actions {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
   margin-bottom: 3rem;
 }
 
 .contact-btn {
   padding: 1.25rem 1.5rem;
-  border-radius: 0.875rem;
+  border-radius: 1rem;
   text-decoration: none;
   font-weight: 600;
   color: white;
   text-align: center;
   font-size: 1rem;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s ease;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -28,6 +31,7 @@
   border: 2px solid transparent;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .contact-btn::before {
@@ -37,72 +41,72 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-  transition: left 0.5s;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
 }
 
 .contact-btn:hover::before {
   left: 100%;
 }
 
-.contact-btn:focus {
-  outline: 2px solid currentColor;
-  outline-offset: 2px;
-}
-
-/* Platform-specific styles with improved color contrast */
+/* Enhanced WhatsApp */
 .contact-btn.whatsapp {
   background: linear-gradient(135deg, #25d366, #1ebe5c);
-  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
 }
 
 .contact-btn.whatsapp:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+  background: linear-gradient(135deg, #1ebe5c, #25d366);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
 }
 
+/* Enhanced Telegram */
 .contact-btn.telegram {
   background: linear-gradient(135deg, #0088cc, #0078b5);
-  box-shadow: 0 4px 12px rgba(0, 136, 204, 0.3);
 }
 
 .contact-btn.telegram:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 136, 204, 0.4);
+  background: linear-gradient(135deg, #0078b5, #0088cc);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 136, 204, 0.3);
 }
 
+/* Enhanced Phone */
 .contact-btn.phone {
   background: linear-gradient(135deg, #2563eb, #1d4ed8);
-  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
 }
 
 .contact-btn.phone:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+  background: linear-gradient(135deg, #1d4ed8, #2563eb);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
 }
 
+/* Enhanced Email */
 .contact-btn.email {
   background: linear-gradient(135deg, #4b5563, #374151);
-  box-shadow: 0 4px 12px rgba(75, 85, 99, 0.3);
 }
 
 .contact-btn.email:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(75, 85, 99, 0.4);
+  background: linear-gradient(135deg, #374151, #4b5563);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(75, 85, 99, 0.3);
 }
 
-/* Form enhancements */
+/* Enhanced Form Styles */
 .form {
   background: #f8fafc;
-  padding: 2rem;
+  padding: 2.5rem;
   border-radius: 1rem;
   border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 .grid-2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 label {
@@ -112,18 +116,13 @@ label {
   color: #374151;
 }
 
-.required-asterisk {
-  color: #ef4444;
-  margin-left: 0.25rem;
-}
-
 input, textarea {
   width: 100%;
-  padding: 0.875rem 1rem;
+  padding: 1rem 1.25rem;
   border: 1px solid #d1d5db;
   border-radius: 0.5rem;
   font-size: 1rem;
-  transition: all 0.2s;
+  transition: all 0.2s ease;
   margin-top: 0.5rem;
   box-sizing: border-box;
 }
@@ -132,11 +131,13 @@ input:focus, textarea:focus {
   outline: none;
   border-color: #3b82f6;
   box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  transform: translateY(-1px);
 }
 
+/* Enhanced Submit Button */
 .btn-primary {
   width: 100%;
-  padding: 1rem 2rem;
+  padding: 1.25rem 2rem;
   background: linear-gradient(135deg, #3b82f6, #2563eb);
   color: white;
   border: none;
@@ -144,19 +145,17 @@ input:focus, textarea:focus {
   font-size: 1.125rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
 }
 
 .btn-primary:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 8px 25px rgba(37, 99, 235, 0.3);
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.3);
 }
 
-.btn-primary:active {
-  transform: translateY(0);
-}
-
-/* Enhanced responsive design */
+/* Responsive Design */
 @media (max-width: 768px) {
   .grid-2 {
     grid-template-columns: 1fr;
@@ -169,22 +168,26 @@ input:focus, textarea:focus {
   }
   
   .form {
-    padding: 1.5rem;
+    padding: 2rem 1.5rem;
+  }
+  
+  .contact-page {
+    padding: 2rem 1rem;
   }
 }
 
 @media (max-width: 480px) {
-  .contact-page {
-    padding: 1rem 0.5rem;
-  }
-  
   .contact-btn {
     font-size: 0.95rem;
-    padding: 1rem 1.25rem;
+    padding: 1.1rem 1.25rem;
   }
   
   input, textarea {
-    padding: 0.75rem;
+    padding: 0.875rem 1rem;
+  }
+  
+  .btn-primary {
+    padding: 1.1rem 1.5rem;
   }
 }
 
@@ -197,15 +200,8 @@ input:focus, textarea:focus {
   .contact-btn::before {
     display: none;
   }
-}
-
-/* High contrast mode support */
-@media (prefers-contrast: high) {
-  .contact-btn {
-    border: 2px solid currentColor;
-  }
   
-  input, textarea {
-    border: 2px solid currentColor;
+  .contact-btn:hover, .btn-primary:hover {
+    transform: none;
   }
 }
