@@ -166,7 +166,50 @@ const translations = {
       years: "лет опыта",
       clients: "довольных клиентов",
       homes: "убранных домов"
-    }
+    },
+    pricing: {
+  title: "Стоимость услуг",
+  s1_title: "Поддерживающая уборка",
+  s1_desc: "Ежедневная или регулярная уборка для поддержания чистоты.",
+  s1_prices: [
+    "1-комнатная до 40 м² — от 3 000 ₽",
+    "2-комнатная до 60 м² — от 4 000 ₽",
+    "3-комнатная до 80 м² — от 5 000 ₽",
+    "От 80 м² — по договоренности"
+  ],
+
+  s2_title: "Генеральная уборка",
+  s2_desc: "Глубокая очистка всех зон, включая труднодоступные места.",
+  s2_prices: [
+    "1-комнатная до 40 м² — от 9 000 ₽",
+    "2-комнатная до 60 м² — от 12 000 ₽",
+    "3-комнатная до 80 м² — от 15 000 ₽",
+    "От 80 м² — по договоренности"
+  ],
+
+  s3_title: "Уборка после ремонта",
+  s3_desc: "Удаление строительной пыли, пятен, очистка поверхностей.",
+  s3_prices: [
+    "1-комнатная до 40 м² — от 12 000 ₽",
+    "2-комнатная до 60 м² — от 16 000 ₽",
+    "3-комнатная до 80 м² — от 20 000 ₽",
+    "От 80 м² — по договоренности"
+  ],
+
+  s4_title: "Дополнительные услуги",
+  s4_items: [
+    "Мойка окон — от 500 ₽/створка",
+    "Мойка духовки — от 400 ₽",
+    "Чистка вытяжки — от 400 ₽",
+    "Мойка микроволновки — от 300 ₽",
+    "Мойка холодильника — от 500 ₽",
+    "Мойка шкафов внутри — 600 ₽",
+    "Глажка белья — от 600 ₽/час",
+    "Мытье лотка питомца — 250 ₽",
+    "Уборка на балконе/гараже — по договоренности"
+  ]
+}
+
   },
 
   /* ---------- English ---------- */
@@ -334,8 +377,53 @@ const translations = {
       years: "years of experience",
       clients: "happy clients",
       homes: "homes cleaned"
-    }
+    },
+    pricing: {
+  title: "Pricing",
+
+  s1_title: "Regular Cleaning",
+  s1_desc: "Daily or weekly cleaning to keep your home tidy.",
+  s1_prices: [
+    "1-room up to 40 m² — from 3,000 ₽",
+    "2-room up to 60 m² — from 4,000 ₽",
+    "3-room up to 80 m² — from 5,000 ₽",
+    "Over 80 m² — on request"
+  ],
+
+  s2_title: "Deep Cleaning",
+  s2_desc: "Thorough cleaning of all areas, including hard-to-reach places.",
+  s2_prices: [
+    "1-room up to 40 m² — from 9,000 ₽",
+    "2-room up to 60 m² — from 12,000 ₽",
+    "3-room up to 80 m² — from 15,000 ₽",
+    "Over 80 m² — on request"
+  ],
+
+  s3_title: "Post-Construction Cleaning",
+  s3_desc: "Removal of dust, debris and stains after renovation.",
+  s3_prices: [
+    "1-room up to 40 m² — from 12,000 ₽",
+    "2-room up to 60 m² — from 16,000 ₽",
+    "3-room up to 80 m² — from 20,000 ₽",
+    "Over 80 m² — on request"
+  ],
+
+  s4_title: "Additional Services",
+  s4_items: [
+    "Window cleaning — from 500 ₽",
+    "Oven cleaning — from 400 ₽",
+    "Hood filter cleaning — from 400 ₽",
+    "Microwave cleaning — from 300 ₽",
+    "Fridge cleaning — from 500 ₽",
+    "Inside cabinet cleaning — 600 ₽",
+    "Ironing — from 600 ₽/hour",
+    "Pet litter cleaning — 250 ₽",
+    "Balcony/garage cleaning — on request"
+  ]
+}
+
   }
+
 };
 
 /* ---------- Context ---------- */
